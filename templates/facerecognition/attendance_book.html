@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>门禁识别统计</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+<main>
+    <h2 style="text-align: center">门禁识别历史记录</h2>
+    <div class="confirm">
+        <h3 class="title_text">识别记录</h3>
+        <ul>
+            {% for user_ in att_user %}
+                <li class="mis-slide">
+                    <div class="mis-container">
+                        <img src="{{ user_.user.photo.url }}" class="photo" alt="photo">
+                        <figure>
+                            <span class="att_text">{{ user_.user.user_name }}</span><br>
+                            <span class="att_text">确认识别</span><br>
+                            <span class="att_text">{{ user_.attendance_time }}</span>
+                        </figure>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="clear"></div>
+</main>
+</body>
+</html>
